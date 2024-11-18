@@ -10,13 +10,13 @@
  * Text Domain: kliken-ads-pixel-for-meta
  * Domain path: /languages
  *
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires PHP: 7.4
  * Requires at least: 5.8
- * Tested up to: 6.6
+ * Tested up to: 6.7
  * Requires Plugins: woocommerce
  * WC requires at least: 6.0
- * WC tested up to: 9.2
+ * WC tested up to: 9.3
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
