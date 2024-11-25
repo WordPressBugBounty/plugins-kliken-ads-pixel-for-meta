@@ -181,7 +181,7 @@ class Plugin {
 			$plugin_links[] = '<a href="' . esc_url( Helper::get_plugin_page() ) . '">' . __( 'Dashboard', 'kliken-ads-pixel-for-meta' ) . '</a>';
 		}
 
-		$plugin_links[] = '<a href="https://support.kliken.com/hc/en-us">' . __( 'Support', 'kliken-ads-pixel-for-meta' ) . '</a>';
+		$plugin_links[] = '<a href="https://intercom.help/kliken/">' . __( 'Support', 'kliken-ads-pixel-for-meta' ) . '</a>';
 
 		return array_merge( $plugin_links, $links );
 	}

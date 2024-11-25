@@ -112,7 +112,7 @@ defined( 'ABSPATH' ) || exit;
 			<div class="settings-header flex align-center">
 				<h2><?php esc_html_e( 'Settings', 'kliken-ads-pixel-for-meta' ); ?></h2>
 				<p>
-					<a href="https://support.kliken.com/hc/en-us/articles/360016107933-WooCommerce-Advanced-Options" target="_blank" rel="noopener noreferrer">
+					<a href="https://intercom.help/kliken/articles/5989948" target="_blank" rel="noopener noreferrer">
 						<?php esc_html_e( 'What are these options?', 'kliken-ads-pixel-for-meta' ); ?>
 					</a>
 				</p>

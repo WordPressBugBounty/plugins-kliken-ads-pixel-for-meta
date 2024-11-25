@@ -10,7 +10,7 @@
  * Text Domain: kliken-ads-pixel-for-meta
  * Domain path: /languages
  *
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires PHP: 7.4
  * Requires at least: 5.8
  * Tested up to: 6.7
