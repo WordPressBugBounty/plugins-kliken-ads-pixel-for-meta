@@ -205,7 +205,7 @@ defined( 'ABSPATH' ) || exit;
 				</a>
 			</div>
 		</div>
-	<div>
+	</div>
 	<details class="primer advanced-settings">
 		<summary>
 			<?php esc_html_e( 'Advanced Settings', 'kliken-ads-pixel-for-meta' ); ?>
