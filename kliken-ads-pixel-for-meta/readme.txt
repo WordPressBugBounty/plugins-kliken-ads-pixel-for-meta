@@ -1,7 +1,7 @@
 === Kliken: Ads + Pixel for Meta ===
 Contributors: sitewit
 Tags: woocommerce, facebook ads, instagram ads, meta pixel, facebook post
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 1.2.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
