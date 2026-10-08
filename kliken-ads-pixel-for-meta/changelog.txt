@@ -1,5 +1,9 @@
 *** Kliken: Ads + Pixel for Meta changelog ***
 
+2026-10-08 - version 1.2.3
+* Security: Order details are only tracked on the order received page when the URL has a valid order key.
+* Fixed an error on the order received page when the URL has a refund ID.
+
 2025-08-06 - version 1.2.2
 * Minor bug fixes.
 

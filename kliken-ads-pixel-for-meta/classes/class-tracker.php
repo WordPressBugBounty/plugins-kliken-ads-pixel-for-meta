@@ -947,7 +947,21 @@ class Tracker {
 	 * @return array|null
 	 */
 	private function build_order_data() {
-		$order_id = get_query_var( 'order-received', 0 );
+		/**
+		 * WooCommerce core filter for the order received page's order ID. Applied the same way core does.
+		 *
+		 * @since 1.2.3
+		 */
+		$order_id = apply_filters( 'woocommerce_thankyou_order_id', absint( get_query_var( 'order-received', 0 ) ) );
+
+		$order_key = isset( $_GET['key'] ) && is_string( $_GET['key'] ) ? wc_clean( wp_unslash( $_GET['key'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+		/**
+		 * WooCommerce core filter for the order received page's order key. Applied the same way core does.
+		 *
+		 * @since 1.2.3
+		 */
+		$order_key = apply_filters( 'woocommerce_thankyou_order_key', $order_key );
 
 		if ( empty( $order_id ) ) {
 			return null;
@@ -956,7 +970,21 @@ class Tracker {
 		// Get the order detail.
 		$order = wc_get_order( $order_id );
 
-		if ( ! $order ) {
+		// Like WooCommerce core, only use the order if the visitor has its key, so order IDs cannot be enumerated. An empty key never matches, as in core's Order Confirmation block, so an order with no stored key is not exposed either.
+		if ( empty( $order_key ) || ! $order instanceof \WC_Order || ! $order->key_is_valid( $order_key ) ) {
+			return null;
+		}
+
+		/**
+		 * WooCommerce core filter for whether registered customers must be logged in to see the order received page. Applied the same way core does.
+		 *
+		 * @since 1.2.3
+		 */
+		$verify_known_shoppers = apply_filters( 'woocommerce_order_received_verify_known_shoppers', true );
+		$customer_id           = $order->get_customer_id();
+
+		// Like WooCommerce core, only use a registered customer's order when that customer is logged in.
+		if ( $verify_known_shoppers && $customer_id && get_current_user_id() !== $customer_id ) {
 			return null;
 		}
 

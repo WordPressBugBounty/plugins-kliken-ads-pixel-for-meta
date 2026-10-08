@@ -317,6 +317,7 @@ class Plugin {
 
 		add_action( 'admin_menu', [ $this, 'add_menu_item' ], 10, 0 );
 		add_action( 'admin_notices', [ $this, 'show_onboarding_message' ] );
+		add_action( 'admin_notices', [ $this, 'show_dev_endpoints_message' ] );
 
 		if ( is_admin() ) {
 			// Handle request to save account info coming back from Kliken sign up process.
@@ -494,6 +495,22 @@ class Plugin {
 
 			Message::show_info( $message, 'welcome' );
 		}
+	}
+
+	/**
+	 * Show the endpoints in use on the plugin page when a dev/test site overrides them in wp-config.php.
+	 */
+	public function show_dev_endpoints_message() {
+		if ( ! KK_FB_WC_ENDPOINTS_OVERRIDDEN || ! Helper::is_plugin_page() ) {
+			return;
+		}
+
+		$items = '';
+		foreach ( [ 'KK_FB_WC_WOOKLIKEN_BASE_URL', 'KK_FB_WC_AUTH_CALLBACK_URL', 'KK_FB_WC_WEBEVENT_API_URL' ] as $name ) {
+			$items .= '<br><code>' . esc_html( $name ) . '</code> = <code>' . esc_html( constant( $name ) ) . '</code>';
+		}
+
+		Message::show_info( '<strong>' . esc_html__( 'Dev endpoints active', 'kliken-ads-pixel-for-meta' ) . '</strong>' . $items );
 	}
 
 	/**

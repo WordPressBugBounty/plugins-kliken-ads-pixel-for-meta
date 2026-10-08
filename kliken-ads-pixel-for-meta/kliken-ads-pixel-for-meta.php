@@ -10,13 +10,13 @@
  * Text Domain: kliken-ads-pixel-for-meta
  * Domain path: /languages
  *
- * Version: 1.2.2
+ * Version: 1.2.3
  * Requires PHP: 7.4
  * Requires at least: 5.8
- * Tested up to: 6.9
+ * Tested up to: 7.1
  * Requires Plugins: woocommerce
  * WC requires at least: 6.0
- * WC tested up to: 10.3
+ * WC tested up to: 11.2
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -26,16 +26,24 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'KK_FB_WC_PLUGIN_VERSION', '1.2.2' ); // Must be the same version as the "Version" at the top.
+define( 'KK_FB_WC_PLUGIN_VERSION', '1.2.3' ); // Must be the same version as the "Version" at the top.
 define( 'KK_FB_WC_PLUGIN_FILE', __FILE__ );
 define( 'KK_FB_WC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'KK_FB_WC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'KK_FB_WC_PLUGIN_BASE_PATH', plugin_basename( __FILE__ ) );
 define( 'KK_FB_WC_PLUGIN_REL_PATH', dirname( KK_FB_WC_PLUGIN_BASE_PATH ) );
 define( 'KK_FB_WC_AFFILIATE_ID', '82E7B644-DB42-40E9-9EDF-6FD10A4BAFB3' );
-define( 'KK_FB_WC_WOOKLIKEN_BASE_URL', 'https://woo.kliken.com/' );
-define( 'KK_FB_WC_AUTH_CALLBACK_URL', 'https://auth.kliken.com/WebHooks/WooCommerceMetaAuth/' );
-define( 'KK_FB_WC_WEBEVENT_API_URL', 'https://weapi.kliken.com/' );
+// Endpoints. Dev and test sites may define any of these in wp-config.php; production uses the defaults below.
+define( 'KK_FB_WC_ENDPOINTS_OVERRIDDEN', defined( 'KK_FB_WC_WOOKLIKEN_BASE_URL' ) || defined( 'KK_FB_WC_AUTH_CALLBACK_URL' ) || defined( 'KK_FB_WC_WEBEVENT_API_URL' ) );
+if ( ! defined( 'KK_FB_WC_WOOKLIKEN_BASE_URL' ) ) {
+	define( 'KK_FB_WC_WOOKLIKEN_BASE_URL', 'https://woo.kliken.com/' );
+}
+if ( ! defined( 'KK_FB_WC_AUTH_CALLBACK_URL' ) ) {
+	define( 'KK_FB_WC_AUTH_CALLBACK_URL', 'https://auth.kliken.com/WebHooks/WooCommerceMetaAuth/' );
+}
+if ( ! defined( 'KK_FB_WC_WEBEVENT_API_URL' ) ) {
+	define( 'KK_FB_WC_WEBEVENT_API_URL', 'https://weapi.kliken.com/' );
+}
 define( 'KK_FB_WC_OTHER_PLUGIN_REL_PATH', 'kliken-marketing-for-google/kliken-marketing-for-google.php' );
 
 define( 'KK_FB_WC_REQUIRES_AT_LEAST_VERSION', '6.0' ); // Must be the same version as the "WC requires at least" at the top.

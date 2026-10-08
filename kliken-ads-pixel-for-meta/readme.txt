@@ -1,8 +1,8 @@
 === Kliken: Ads + Pixel for Meta ===
 Contributors: sitewit
 Tags: woocommerce, facebook ads, instagram ads, meta pixel, facebook post
-Tested up to: 6.9
-Stable tag: 1.2.2
+Tested up to: 7.1
+Stable tag: 1.2.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -124,5 +124,6 @@ Setting up a Meta Advantage+ shopping campaign can be accomplished in just a few
 
 == Changelog ==
 
-= 1.2.2 =
-* Minor bug fixes.ts.
+= 1.2.3 =
+* Security: Order details are only tracked on the order received page when the URL has a valid order key.
+* Fixed an error on the order received page when the URL has a refund ID.
